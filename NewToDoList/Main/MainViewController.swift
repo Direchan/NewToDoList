@@ -10,9 +10,17 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var mainImage: UIImageView!
     
+    @IBAction func pdvcTapped(_ sender: Any) {
+        let vc = ProfileDesginViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadImageFromURL()
+        	
+
     }
 
     func downloadImageFromURL() {

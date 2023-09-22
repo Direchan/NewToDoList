@@ -1,6 +1,5 @@
 import UIKit
 
-// 카테고리를 정의하는 열거형
 enum TodoCategory: String, CaseIterable, Codable {
     case work = "Work"
     case life = "Life"
@@ -20,12 +19,10 @@ class ToDoList: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     }
 
-    // Section의 갯수를 정해요.
     func numberOfSections(in tableView: UITableView) -> Int {
         return TodoCategory.allCases.count
     }
 
-    // Section에 따라서 갯수를 정해요
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let currentCategory = TodoCategory.allCases[section]
         return ToDoManager.shared.todoList.filter { $0.category == currentCategory }.count
